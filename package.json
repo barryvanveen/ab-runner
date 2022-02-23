@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "commander": "^9.0.0"
+  },
+  "name": "ab-runner",
+  "description": "An opinionated Apache Benchmark (ab) runner and plotter.",
+  "version": "0.0.1",
+  "main": "abrunner.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barryvanveen/ab-runner.git"
+  },
+  "keywords": [
+    "apache",
+    "benchmark",
+    "ab",
+    "runner",
+    "gnuplot",
+    "performance",
+    "test"
+  ],
+  "author": "Barry van Veen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/barryvanveen/ab-runner/issues"
+  },
+  "homepage": "https://github.com/barryvanveen/ab-runner#readme"
+}
