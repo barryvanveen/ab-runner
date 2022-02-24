@@ -8,6 +8,9 @@ class ApacheBenchmark {
         this.requests = options.requests;
         this.concurrency = options.concurrency;
         this.url = options.url;
+        this.method = options.method;
+        this.contentType = options.contentType;
+        this.headers = options.headers;
         this.iterations = options.iterations;
         this.wait = options.wait;
 
@@ -33,12 +36,38 @@ class ApacheBenchmark {
             `-n ${this.requests}`,
             `-c ${this.concurrency}`,
             `-g ${dataFile}`,
+            `-m ${this.method}`,
+        ];
+
+        command = command.concat(this.getAbOptionalCommandParts());
+
+        command = command.concat([
             `-l`,
             this.url,
             `&> ${outputFile}`
-        ];
+        ]);
 
         return command.join(' ');
+    }
+
+    getAbOptionalCommandParts() {
+        let command = [];
+
+        if (this.contentType) {
+            command = command.concat([
+                `-T "${this.contentType}"`,
+            ]);
+        }
+
+        if (this.headers) {
+            for (let i in this.headers) {
+                command = command.concat([
+                    `-H "${this.headers[i]}"`,
+                ]);
+            }
+        }
+
+        return command;
     }
 
     run() {
