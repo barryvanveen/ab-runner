@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { Command, Option } = require('commander');
-const { ApacheBenchmark } = require("./src/ab");
+const { Test } = require('./src/test');
 
 /**
  * Test (run Apache Benchmark)
@@ -20,7 +20,7 @@ test.addOption(new Option('-o, --output-dir <string>', 'directory to store outpu
     .addOption(new Option('-w, --wait <int>', 'how long to wait between iterations (in seconds)').default(300, '5 minutes'))
     .action((options) => {
         try {
-            const test = new ApacheBenchmark(options);
+            const test = new Test(options);
             test.run();
         } catch (error) {
             console.error(error)
