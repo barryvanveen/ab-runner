@@ -10,7 +10,7 @@ Running `ab` once can give unreliable results. Maybe your server is doing other 
 - A unix terminal (tested on macOS)
 - [Apache Benchmark (ab)](https://httpd.apache.org/docs/2.4/programs/ab.html)
 - [Gnuplot](http://gnuplot.info/)
-- [NodeJS](https://nodejs.org/en/)
+- [NodeJS](https://nodejs.org/en/) (>= 16)
 
 ## Installation
 
@@ -65,5 +65,5 @@ Running this command will create a bunch of outputs:
 - `iteration*.dat` files contain the `ab` output (that is normally outputted in the terminal)
 - `combined.dat` contains all combined measurements
 - `combined.stats` contain some statistics collected from the combined measurements
-- `results.png` contains a plot with which you can visually inspect the response times of the individual runs and everything combined
-- `results.p` is the Gnuplot script used to create above plot
+- `test.png` contains a plot with which you can visually inspect the response times of the individual runs and everything combined
+- `test.p` is the Gnuplot script used to create above plot
