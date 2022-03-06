@@ -29,7 +29,7 @@ To install:
 ## Quick start
 
 ```shell
-./abrunner.js test --help
+./abrunner.js measure --help
 ./abrunner.js compare --help
 ```
 
@@ -37,12 +37,12 @@ To install:
 
 A typical run can be started like this:
 ```shell
-./abrunner.js test -u https://localhost.test/ -o results/foo
+./abrunner.js measure -u https://localhost.test/ -o results/foo
 ```
 
-This used the default settings. It will run 10 tests of 500 requests with 10 concurrency. Between each test it will wait for 5 minutes. The results will be stored in `./results/foo`.
+This used the default settings. It will run 10 measurements of 500 requests with 10 concurrency. Between each measurement it will wait for 5 minutes. The results will be stored in `./results/foo`.
 
-For more advanced options, read the [advanced test docs](./docs/test_advanced.md).
+For more advanced options, read the [advanced measure docs](./docs/measure_advanced.md).
 
 ### Results
 
@@ -51,14 +51,14 @@ Running this command will create a bunch of outputs:
 - `iteration*.out` files contain the `ab` output (that is normally outputted in the terminal)
 - `combined.dat` contains all combined measurements
 - `combined.stats` contain some statistics collected from the combined measurements
-- `test.png` contains a plot with which you can visually inspect the response times of the individual runs and everything combined
-- `test.p` is the Gnuplot script used to create above plot
+- `measure.png` contains a plot with which you can visually inspect the response times of the individual runs and everything combined
+- `measure.p` is the Gnuplot script used to create above plot
 
 ## Compare
 
-Compare any number of tests you performed before. The result will be a combined boxplot.
+Compare any number of measurements you took before. The result will be a combined boxplot.
 
-For each run you want to incorporate into the comparison, provide the `combined.dat` datafile (or another `ab` gnuplot output file) and an appropriate label.
+For each measurement you want to incorporate into the comparison, provide the `combined.dat` datafile (or another `ab` gnuplot output file) and an appropriate label.
 
 ```shell
 ./abrunner.js compare -i results/foo/combined.dat results/bar/combined.dat -l "Foo" "Bar" -o results/comparison
