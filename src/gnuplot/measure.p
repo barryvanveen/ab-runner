@@ -1,7 +1,7 @@
 count = ARG1
 
 set terminal png size 500,500
-set output 'test.png'
+set output 'measure.png'
 set size 1, 1
 
 set title "Apache Benchmark results"

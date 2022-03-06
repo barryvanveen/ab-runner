@@ -3,7 +3,7 @@ const path = require("path");
 const { Logger } = require("./logger");
 const { copyFile, createDir, exists } = require("./fileSystem");
 
-class Test {
+class Measure {
     #outputDir;
     #requests;
     #concurrency;
@@ -100,12 +100,12 @@ class Test {
 
         this.#execute(`awk "FNR>1 || NR==1" iteration*.dat > combined.dat`);
 
-        copyFile(path.join(__dirname, 'gnuplot/test.p'), this.#outputDir);
-        this.#execute(`gnuplot -c test.p ${this.#iterations}`);
+        copyFile(path.join(__dirname, 'gnuplot/measure.p'), this.#outputDir);
+        this.#execute(`gnuplot -c measure.p ${this.#iterations}`);
 
         copyFile(path.join(__dirname, 'gnuplot/stats.p'), this.#outputDir);
         this.#execute(`gnuplot -c stats.p combined.dat combined.stats`);
     }
 }
 
-exports.Test = Test;
+exports.Measure = Measure;
