@@ -89,9 +89,11 @@ class Test {
 
     run() {
         for (let iteration=1; iteration<=this.#iterations; iteration++) {
+            this.#logger.logToScreen(`Running ab (${iteration})`);
             this.#execute(this.#getAbCommand(iteration));
 
             if (iteration<this.#iterations) {
+                this.#logger.logToScreen(`Wait (${iteration})`);
                 this.#execute(`sleep ${this.#wait}`);
             }
         }
