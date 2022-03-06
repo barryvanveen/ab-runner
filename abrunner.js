@@ -16,7 +16,7 @@ test.addOption(new Option('-o, --output-dir <string>', 'directory to store outpu
     .addOption(new Option('-m, --method <string>', 'GET, POST, PUT, HEAD, etc').default('GET'))
     .addOption(new Option('-t, --content-type <string>', 'Content-Type header for POST/PUT requests'))
     .addOption(new Option('-h, --headers <string...>', 'One or more headers to add to the request, eg. \'Accept-Encoding: gzip\''))
-    .addOption(new Option('-i, --iterations <int>', 'how often should the test be repeated').default(1))
+    .addOption(new Option('-i, --iterations <int>', 'how often should the test be repeated').default(10))
     .addOption(new Option('-w, --wait <int>', 'how long to wait between iterations (in seconds)').default(300, '5 minutes'))
     .action((options) => {
         try {

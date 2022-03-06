@@ -8,6 +8,10 @@ class Logger {
     log(data) {
         this.logger.log(data);
     }
+
+    logToScreen(data) {
+        console.log(data);
+    }
 }
 
 exports.Logger = Logger;
