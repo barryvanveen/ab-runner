@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const { Command, Option } = require('commander');
+const { Compare } = require('./src/compare');
 const { Test } = require('./src/test');
 
 /**
@@ -28,10 +29,30 @@ test.addOption(new Option('-o, --output-dir <string>', 'directory to store outpu
     })
 
 /**
+ * Compare
+ */
+
+const compare = new Command('compare');
+
+compare
+    .addOption(new Option('-i, --input-files <string...>', 'input files to compare').makeOptionMandatory())
+    .addOption(new Option('-l, --labels <string...>', 'label for each directory (used in plot)').makeOptionMandatory())
+    .addOption(new Option('-o, --output-dir <string>', 'directory to store output').makeOptionMandatory())
+    .action((options) => {
+        try {
+            const compare = new Compare(options);
+            compare.run();
+        } catch (error) {
+            console.error(error)
+        }
+    })
+
+/**
  * Main
  */
 
 program = new Command();
 program.showHelpAfterError('(add --help for additional information)');
 program.addCommand(test);
+program.addCommand(compare);
 program.parse(process.argv);
